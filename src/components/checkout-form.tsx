@@ -31,7 +31,7 @@ export default function CheckoutForm({ product }: Props) {
     } catch { setResult({ error: "Network issue. Please try again." }); }
     finally { setBusy(false); }
   }
-  if (result?.ok && result.order_reference) return <section className="checkout-success"><span className="eyebrow">ORDER REQUEST RECEIVED</span><h2>Thank you.</h2><p>Your reference is <strong>{result.order_reference}</strong>.</p><p>{result.message}</p>{result.tracking_token&&<p><a className="button" href={"/track/"+encodeURIComponent(result.tracking_token)}>Track this order ↗</a></p>}<p>Keep this reference when contacting the store. Payment has not been collected online.</p><a className="button" href="/products">Continue browsing ↗</a></section>;
+  if (result?.ok && result.order_reference) return <section className="checkout-success"><span className="eyebrow">ORDER REQUEST RECEIVED</span><h2>Thank you.</h2><p>Your reference is <strong>{result.order_reference}</strong>.</p><p>{result.message}</p>{result.tracking_token&&<p><a className="button" href={"/track/"+encodeURIComponent(result.tracking_token)}>Track this order ↗</a></p>}<p>Keep this reference when contacting the store. Payment has not been collected online.</p>{result.tracking_token&&<a className="button" href={`/track/${encodeURIComponent(result.tracking_token)}`}>Track this order ↗</a>}<a className="button" href="/products">Continue browsing ↗</a></section>;
   return <form className="checkout-form" onSubmit={submit}>
     <div className="checkout-product"><span>YOUR LAPTOP</span><strong>{product.title}</strong><b>Rs. {money(product.price_pkr)}</b></div>
     <label>Full name<input name="full_name" autoComplete="name" minLength={2} maxLength={100} required/></label>
