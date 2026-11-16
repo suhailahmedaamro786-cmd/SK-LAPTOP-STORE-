@@ -26,3 +26,41 @@
 .checkout-page{min-height:100vh}.checkout-shell{max-width:1120px;margin:48px auto 90px;padding:0 28px;display:grid;grid-template-columns:.8fr 1.2fr;gap:70px;align-items:start}.checkout-shell h1{font:800 clamp(38px,5vw,58px)/1.08 Manrope,sans-serif;letter-spacing:-2px;margin:18px 0}.checkout-shell h1 em{font-style:normal;color:var(--gold)}.checkout-shell>div>p{color:var(--muted);line-height:1.8;max-width:390px}.checkout-steps{display:grid;gap:12px;margin-top:42px;color:#aab6c8;font-size:12px}.checkout-steps span{border-left:2px solid var(--gold);padding:9px 14px;background:#101a2b}.checkout-form{padding:28px;background:#101a2b;border:1px solid var(--line);border-radius:12px;display:grid;gap:16px}.checkout-product{display:grid;gap:7px;padding:0 0 20px;border-bottom:1px solid var(--line)}.checkout-product span,.checkout-product b{font-size:11px;color:var(--gold);letter-spacing:1.5px}.checkout-product strong{font:700 19px Manrope,sans-serif}.checkout-form>label,.checkout-fields label{display:grid;gap:7px;color:#dce3ee;font-size:12px}.checkout-form input:not([type=radio]),.checkout-form textarea{width:100%;border:1px solid #34445c;background:#0a1220;color:var(--text);border-radius:6px;padding:12px;font:inherit;outline:none}.checkout-form input:focus,.checkout-form textarea:focus{border-color:var(--gold)}.checkout-form textarea{min-height:76px;resize:vertical}.checkout-fields{display:grid;grid-template-columns:1fr 1fr;gap:12px}.checkout-form fieldset{border:1px solid var(--line);border-radius:7px;padding:14px;display:grid;gap:12px}.checkout-form legend{color:var(--gold);font-size:12px;padding:0 6px}.payment-option{display:flex;align-items:center;gap:9px;color:#dce3ee;font-size:12px}.payment-option input{accent-color:var(--gold)}.checkout-disclaimer{font-size:11px;line-height:1.7;color:var(--muted);padding:12px;background:#0b1422;border-radius:6px}.checkout-submit{border:0;justify-content:center;cursor:pointer}.checkout-submit:disabled{opacity:.6;cursor:wait}.checkout-error{color:#ff9b9b;font-size:12px}.checkout-success{max-width:620px;margin:90px auto;padding:36px;background:#101a2b;border:1px solid var(--line);border-radius:12px}.checkout-success h2{font:800 42px Manrope,sans-serif;margin:15px 0}.checkout-success p{color:var(--muted);line-height:1.8}.checkout-success strong{color:var(--gold)}@media(max-width:760px){.checkout-shell{grid-template-columns:1fr;gap:28px;margin:25px auto 60px}.checkout-shell h1{font-size:42px}.checkout-form{padding:20px}.checkout-steps{display:flex;flex-wrap:wrap;gap:7px}.checkout-steps span{font-size:10px}.checkout-fields{grid-template-columns:1fr}.header nav{gap:12px}.header nav a{font-size:11px}}
 
 .tracking-panel{max-width:720px;margin:34px auto 90px;padding:26px;background:#101a2b;border:1px solid var(--line);border-radius:12px}.tracking-panel h2{font:800 24px Manrope,sans-serif}.tracking-panel h3{margin-top:28px;color:var(--gold);font:700 14px Manrope}.tracking-panel p{color:var(--muted);font-size:12px;line-height:1.7}.tracking-panel a{color:var(--gold)}.tracking-panel ol{display:grid;gap:12px;padding-left:22px}.tracking-panel li{padding:12px;border:1px solid var(--line);border-radius:7px}.tracking-panel li strong,.tracking-panel li span{display:block}.tracking-panel li strong{color:#f2d28b;text-transform:capitalize;font-size:12px}.tracking-panel li span{margin-top:5px;color:var(--muted);font-size:10px}
+
+/* Responsive navigation and lightweight storefront motion */
+.header{position:relative;z-index:30}
+.site-nav{display:flex;align-items:center;gap:28px}
+.site-nav a{color:#c2cad7;text-decoration:none;font-size:13px;transition:color .18s ease}
+.site-nav a:hover,.site-nav a:focus-visible{color:var(--gold)}
+.menu-toggle,.mobile-nav-cta{display:none}
+.hero-copy{animation:store-enter .65s both}
+.hero-art{animation:store-enter .8s .08s both}
+.glow{animation:store-glow 7s ease-in-out infinite alternate}
+.category-card,.product-card,.policy-list article,.contact-panel{transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}
+.category-card:hover,.product-card:hover,.policy-list article:hover{transform:translateY(-4px);border-color:#9d7b42;box-shadow:0 16px 36px #0003}
+.button{transition:transform .18s ease,filter .18s ease,box-shadow .18s ease}
+.button:hover{transform:translateY(-2px);filter:brightness(1.06);box-shadow:0 12px 34px #c28d3140}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.product-card{animation:store-enter .45s both}
+.product-card:nth-child(2){animation-delay:.04s}.product-card:nth-child(3){animation-delay:.08s}.product-card:nth-child(4){animation-delay:.12s}.product-card:nth-child(5){animation-delay:.16s}.product-card:nth-child(6){animation-delay:.2s}
+@keyframes store-enter{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes store-glow{from{transform:translate3d(-10px,5px,0) scale(.92);opacity:.22}to{transform:translate3d(12px,-8px,0) scale(1.08);opacity:.38}}
+@media(max-width:760px){
+  .header{height:72px;padding:0 18px}
+  .header .brand img{width:175px}
+  .menu-toggle{display:flex;width:42px;height:40px;flex-direction:column;justify-content:center;gap:5px;border:1px solid var(--line);border-radius:7px;background:#101a2b;padding:10px;cursor:pointer}
+  .menu-toggle span{display:block;width:100%;height:2px;background:#e9d5a7;border-radius:2px}
+  .site-nav{display:none;position:absolute;top:calc(100% - 1px);left:12px;right:12px;padding:12px;background:#101a2b;border:1px solid var(--line);border-radius:10px;box-shadow:0 18px 40px #0009;align-items:stretch;gap:2px}
+  .site-nav.nav-open{display:grid;animation:store-enter .18s ease both}
+  .site-nav a{padding:12px;border-radius:6px}
+  .site-nav a:hover{background:#1a2a40}
+  .site-nav .mobile-nav-cta{display:block;color:#f0d18b;border-top:1px solid var(--line);margin-top:5px}
+  .header-cta{display:none}
+  .hero{padding-top:52px}
+  .hero-art{max-width:560px;width:100%;margin:0 auto}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero-copy,.hero-art,.product-card,.site-nav.nav-open{animation:none!important}
+  .glow{animation:none!important}
+  .category-card,.product-card,.policy-list article,.contact-panel,.button,.product-image img{transition:none!important}
+}
