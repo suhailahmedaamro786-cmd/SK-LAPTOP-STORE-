@@ -6,6 +6,7 @@ export type PublicProduct = {
   title: string;
   brand: string | null;
   model: string | null;
+  category: "business" | "student" | "gaming" | "workstation" | "accessories";
   condition: "new" | "used";
   price_pkr: number;
   currency: "PKR";
@@ -28,6 +29,7 @@ function isPublicProduct(value: unknown): value is PublicProduct {
     typeof value.title === "string" &&
     (value.brand === null || typeof value.brand === "string") &&
     (value.model === null || typeof value.model === "string") &&
+    ["business", "student", "gaming", "workstation", "accessories"].includes(String(value.category)) &&
     (value.condition === "new" || value.condition === "used") &&
     Number.isSafeInteger(value.price_pkr) && Number(value.price_pkr) >= 0 &&
     value.currency === "PKR" &&

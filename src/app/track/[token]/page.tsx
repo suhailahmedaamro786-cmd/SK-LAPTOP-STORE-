@@ -1,0 +1,3 @@
+export const metadata = { robots: { index: false, follow: false } };
+import TrackingView from "@/components/tracking-view";
+export default async function TrackingPage({params}:{params:Promise<{token:string}>}){const {token}=await params;return <main className="page-shell"><header className="page-heading"><p className="eyebrow">ORDER STATUS</p><h1>Track your order</h1><p>Private tracking details for your SK LAPTOP STORE order.</p></header><TrackingView token={token}/></main>}

@@ -2,7 +2,7 @@
 import { FormEvent, useRef, useState } from "react";
 
 type Props = { product: { id: string; title: string; price_pkr: number } };
-type Result = { ok?: boolean; order_reference?: string; error?: string; message?: string; shipping?: string };
+type Result = { ok?: boolean; order_reference?: string; tracking_token?: string; error?: string; message?: string; shipping?: string };
 const money = (value: number) => new Intl.NumberFormat("en-PK", { maximumFractionDigits: 0 }).format(value);
 
 export default function CheckoutForm({ product }: Props) {
@@ -31,7 +31,7 @@ export default function CheckoutForm({ product }: Props) {
     } catch { setResult({ error: "Network issue. Please try again." }); }
     finally { setBusy(false); }
   }
-  if (result?.ok && result.order_reference) return <section className="checkout-success"><span className="eyebrow">ORDER REQUEST RECEIVED</span><h2>Thank you.</h2><p>Your reference is <strong>{result.order_reference}</strong>.</p><p>{result.message}</p><p>Keep this reference when contacting the store. Payment has not been collected online.</p><a className="button" href="/products">Continue browsing ↗</a></section>;
+  if (result?.ok && result.order_reference) return <section className="checkout-success"><span className="eyebrow">ORDER REQUEST RECEIVED</span><h2>Thank you.</h2><p>Your reference is <strong>{result.order_reference}</strong>.</p><p>{result.message}</p><p>Keep this reference when contacting the store. Payment has not been collected online.</p>{result.tracking_token&&<a className="button" href={`/track/${encodeURIComponent(result.tracking_token)}`}>Track this order ↗</a>}<a className="button" href="/products">Continue browsing ↗</a></section>;
   return <form className="checkout-form" onSubmit={submit}>
     <div className="checkout-product"><span>YOUR LAPTOP</span><strong>{product.title}</strong><b>Rs. {money(product.price_pkr)}</b></div>
     <label>Full name<input name="full_name" autoComplete="name" minLength={2} maxLength={100} required/></label>
