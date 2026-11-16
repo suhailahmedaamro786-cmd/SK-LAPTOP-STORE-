@@ -1,3 +1,5 @@
+import SiteHeader from "@/components/site-header";
+
 const categories = [
   { title: "Business Laptops", detail: "Reliable machines for everyday work", href: "/products?category=business" },
   { title: "Student Laptops", detail: "Study, research and learning", href: "/products?category=student" },
@@ -13,12 +15,7 @@ const highlights = [
 ];
 export default function HomePage() {
   return <main>
-    <div className="announcement">SK LAPTOP STORE · Pakistan-wide laptop inquiries</div>
-    <header className="header">
-      <a className="brand" href="/" aria-label="SK Laptop Store home"><img src="/sk-laptop-store-logo.svg" alt="SK Laptop Store" /></a>
-      <nav aria-label="Main navigation"><a href="/products">Shop laptops</a><a href="/products?condition=used">Used laptops</a><a href="/policies">Store policies</a><a href="/contact">Contact</a></nav>
-      <a className="button button-small" href="/contact">Ask about a laptop ↗</a>
-    </header>
+    <SiteHeader announcement />
     <section className="hero">
       <div className="hero-copy"><span className="eyebrow">BUY SMART · WORK SMART · GROW SMART</span>
         <h1>Find the laptop that moves <em>you forward.</em></h1>
@@ -29,7 +26,7 @@ export default function HomePage() {
       </div>
       <div className="hero-art" aria-label="Decorative laptop illustration"><div className="glow" /><div className="screen"><div className="screen-mark">SK<span>.</span></div><div className="screen-caption">POWER YOUR NEXT MOVE</div></div><div className="keyboard"><div className="keys" /></div><div className="art-label">TECH THAT WORKS FOR YOU</div></div>
     </section>
-    <section className="trust-strip">{highlights.map((item)=><article key={item.title}><span className="check">✦</span><div><h3>{item.title}</h3><p>{item.detail}</p></div></article>)}</section>
+    <section className="trust-strip">{highlights.map(item=><article key={item.title}><span className="check">✦</span><div><h3>{item.title}</h3><p>{item.detail}</p></div></article>)}</section>
     <section id="categories" className="section"><div className="section-heading"><div><span className="eyebrow">SHOP BY NEED</span><h2>Find your <em>perfect fit.</em></h2></div><p>Browse by use case. Live products will be shown only after inventory is verified and published.</p></div>
       <div className="category-grid">{categories.map((item,i)=><a className="category-card" href={item.href} key={item.title}><span className="category-number">0{i+1}</span><div className="category-icon">{["▣","⌘","◈","▤","↗","＋"][i]}</div><h3>{item.title}</h3><p>{item.detail}</p><span className="arrow">↗</span></a>)}</div>
     </section>
