@@ -37,7 +37,7 @@ export default async function ProductsPage({ searchParams }: { searchParams: Pro
             <h2>{product.title}</h2>
             {product.model && <p className="product-model">{product.model}</p>}
             {product.short_description && <p className="product-description">{product.short_description}</p>}
-            <div className="product-card-bottom"><strong>Rs. {formatPrice(product.price_pkr)}</strong><a href={`/contact?product=${encodeURIComponent(product.slug)}`}>Enquire ↗</a></div>
+            <div className="product-card-bottom"><strong>Rs. {formatPrice(product.price_pkr)}</strong><span><a href={`/contact?product=${encodeURIComponent(product.slug)}`}>Enquire ↗</a>{product.availability === "in_stock" && <a className="product-buy-link" href={`/checkout?product=${encodeURIComponent(product.slug)}`}>Order now ↗</a>}</span></div>
           </div>
         </article>)}
       </div> : <div className="empty-catalog"><span className="empty-icon">⌕</span><h2>{items.length === 0 ? "Verified products are being prepared." : "No matching laptops found."}</h2><p>{items.length === 0 ? "There are no verified products published in this catalogue yet, or the store feed is not configured. We will not display invented stock or prices." : "Try another brand, model or condition filter. You can also contact the store to ask about availability."}</p><a className="button" href="/contact">Ask about availability ↗</a></div>}
