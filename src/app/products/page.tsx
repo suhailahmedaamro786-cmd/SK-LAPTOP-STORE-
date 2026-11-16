@@ -13,7 +13,7 @@ export default async function ProductsPage({ searchParams }: { searchParams: Pro
   const products = items.filter(product => {
     const matchesCondition = !condition || product.condition === condition;
     const searchable = [product.title, product.brand ?? "", product.model ?? "", product.short_description ?? "", ...Object.values(product.specifications)].join(" ").toLowerCase();
-    const matchesCategory = !category || [product.title, product.brand ?? "", product.model ?? "", product.short_description ?? ""].join(" ").toLowerCase().includes(category);
+    const matchesCategory = !category || product.category === category;
     return matchesCondition && matchesCategory && (!query || searchable.includes(query));
   });
 
