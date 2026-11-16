@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 120" role="img" aria-labelledby="title desc">
+<title id="title">SK Laptop Store</title><desc id="desc">Silver and gold SK monogram with laptop outline and SK Laptop Store wordmark.</desc>
+<defs><linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff0a8"/><stop offset=".48" stop-color="#d6a63d"/><stop offset="1" stop-color="#8e5d12"/></linearGradient><linearGradient id="silver" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff"/><stop offset=".5" stop-color="#aeb9ca"/><stop offset="1" stop-color="#56647a"/></linearGradient></defs>
+<path d="M18 77 74 14h95l-35 24H84L54 70h76l-21 30H13z" fill="url(#silver)"/>
+<path d="M77 104 126 49h53l-18 18h-23l-18 16h67l-20 21z" fill="url(#gold)"/>
+<path d="M158 84h35l-8 12h-36z" fill="none" stroke="url(#gold)" stroke-width="4"/>
+<text x="220" y="54" font-family="Arial,Helvetica,sans-serif" font-size="37" font-weight="800" letter-spacing="1.2" fill="#f4f7fb">SK LAPTOP</text>
+<text x="222" y="94" font-family="Arial,Helvetica,sans-serif" font-size="34" font-weight="800" letter-spacing="4" fill="url(#gold)">STORE</text>
+</svg>
